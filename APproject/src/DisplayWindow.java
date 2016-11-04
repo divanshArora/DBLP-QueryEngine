@@ -21,6 +21,7 @@ public class DisplayWindow extends JFrame{
 		add(rightPanel);
 		
 		// test comment 
+		// another comment
 		
 		pack();
 
