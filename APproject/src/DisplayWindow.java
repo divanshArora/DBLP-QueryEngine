@@ -20,6 +20,8 @@ public class DisplayWindow extends JFrame{
 		add(leftPanel);
 		add(rightPanel);
 		
+		// test comment 
+		
 		pack();
 
 	}
