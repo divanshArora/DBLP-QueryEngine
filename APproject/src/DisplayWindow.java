@@ -40,6 +40,6 @@ public class DisplayWindow extends JFrame{
 	{
 		rightPanel = new JPanel();
 	}
-	
+	//Added comment
 
 }
