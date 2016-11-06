@@ -23,6 +23,12 @@ public class DisplayWindow extends JFrame{
 		// test comment 
 		// another comment
 		
+	
+		//  
+		
+		
+		///
+		
 		pack();
 
 	}
