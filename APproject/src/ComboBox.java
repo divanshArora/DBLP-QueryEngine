@@ -1,9 +1,26 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class ComboBox {
-	private String queryArray[];
-	public ComboBox(String queryArray[]) {
-		this.queryArray = queryArray;
+import javax.swing.JPanel;
+
+public class ComboBox implements ActionListener{
+	Query gotQuery;
+	JPanel leftPanel;
+	public ComboBox(Query gotQuery, JPanel leftPanel) {
+		this.gotQuery = gotQuery;
+		this.leftPanel = leftPanel;
 	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	public void addToPanel()
+	{
+		
+	}
+	
+	
 	
 
 }
