@@ -8,11 +8,12 @@ public class mainClass {
 			public void run() {
 				DisplayWindow sampleDW = new DisplayWindow("DBLP QUERY ENGINE");
 				sampleDW.setVisible(true);
-			}
+				
+				
+			}	
 		});
 		//Just a comment
 		//Just another one
 		
 	}
-
 }
