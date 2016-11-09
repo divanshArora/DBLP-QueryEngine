@@ -15,7 +15,18 @@ import org.xml.sax.*;
 
 public class ReadXmlFile
 {
-
+	
+	public void search()
+	{
+		//Finding publications by a given author name
+		//Finding publications by title tags.
+		
+		
+	}
+	
+	
+	
+	
 	public static void main(String[] args)
 	{
 		System.setProperty("jdk.xml.entityExpansionLimit", "0");
@@ -28,8 +39,8 @@ public class ReadXmlFile
 		try {
 			saxParser = factory.newSAXParser();
 		} catch (ParserConfigurationException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			// TODO Auto-generated catch block
 		} catch (SAXException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
