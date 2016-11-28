@@ -1,33 +1,31 @@
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
+public class QueryType1 {
+	public static void main(String[] args) throws IOException {
+		long startTime = System.currentTimeMillis();
+		BufferedReader br = new BufferedReader(new FileReader("dblp.xml"));
+		BufferedWriter bw = new BufferedWriter(new FileWriter("a.txt"));
+		String line = br.readLine();
+		String name = "Sanjeev Saxena";
+		while (line != null) {
+			if (line.length() > 16) {
+				if (line.substring(0, 3).equals("<au")) {
+					if (line.substring(8, line.length() - 9).equals(name)) {
+						bw.write(line);
+					}
+				}
+			}
+			line = br.readLine();
+		}
+		bw.close();
+		long endTime = System.currentTimeMillis();
 
-public class QueryType1 extends Query implements ActionListener{
-	String arr[] = {"By name","By title"};
-	public QueryType1(String attribute, JPanel leftPanel) {
-		this.attribute = attribute;
-		this.leftPanel = leftPanel;
+		System.out.println(endTime - startTime);
+
 	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		JComboBox< String > cb = (JComboBox<String>)e.getSource();
-		int index = cb.getSelectedIndex();
-		System.out.println(index);
-		JComboBox<String> secondCombo = new JComboBox<>(arr);
-		leftPanel.add(secondCombo);
-		leftPanel.revalidate();
-		
-	}
-	
-	@Override
-	public String toString() {
-		return this.attribute;
-	}
-	
+
 }
