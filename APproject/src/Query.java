@@ -4,9 +4,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-public abstract class Query implements  ActionListener{
-	protected String attribute;
-	protected JPanel leftPanel;
-	//abstract void attach(JPanel panel);
+public class Query {
+	//http://stackoverflow.com/questions/16450293/how-do-i-make-the-output-come-in-different-columns
+	private int QueryNumber;
+	
+
 	
 }

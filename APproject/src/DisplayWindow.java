@@ -82,8 +82,5 @@ public class DisplayWindow extends JFrame {
 
 	}
 
-	public void initForm1(JPanel panel) {
-
-	}
 
 }

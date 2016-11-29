@@ -20,7 +20,7 @@ public class QueryType1 {
 				}
 			}
 			line = br.readLine();
-		}
+		}	
 		bw.close();
 		long endTime = System.currentTimeMillis();
 
