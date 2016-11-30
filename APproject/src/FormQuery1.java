@@ -24,6 +24,7 @@ public class FormQuery1  {
 	private static HintTextField start =new HintTextField("Start",5);
 	private static HintTextField end = new HintTextField("End",5);
 	private static HintTextField enterYear = new HintTextField("Enter Year",10);
+	private static Query currentQuery = DisplayWindow.currentQuery;
 	private FormQuery1(){}
 	public static JPanel getFormQuery1 () {
 		if(formQuery1==null)
@@ -42,10 +43,13 @@ public class FormQuery1  {
 						if(combo2.getSelectedIndex()==1)
 						{
 							searchBy = "author";
+							
 						}
 						else if(combo2.getSelectedIndex()==2) {
 							searchBy ="title";
+							
 						}
+						currentQuery.setSearchBy(searchBy);
 					}
 				}
 			});
@@ -90,6 +94,8 @@ public class FormQuery1  {
 							sortBy = "date";
 							
 						}
+						currentQuery.setSortBy(sortBy);
+						
 					}
 					
 				}
@@ -112,7 +118,22 @@ public class FormQuery1  {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					System.out.println(searchBy+sortBy+start.getText()+end.getText()+enterYear.getText());
+					//System.out.println(searchBy+sortBy+start.getText()+end.getText()+enterYear.getText());
+					if(customYearHelper!=null)
+					{
+						yearStart = start.getText();
+						yearEnd = end.getText();
+					}
+					else if(sinceYearHelper!=null) {
+						yearStart = enterYear.getText();
+						yearEnd = null;
+					}
+					
+					
+					
+					
+					
+					
 				}
 			});
 			
@@ -149,6 +170,7 @@ public class FormQuery1  {
 			start.reset();
 			end.reset();
 			enterYear.reset();
+			
 		}
 		else if(select==1)
 		{
@@ -200,5 +222,8 @@ public class FormQuery1  {
 			}
 			
 		}
+		
+		
+		
 	}
 }
