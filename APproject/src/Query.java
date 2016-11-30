@@ -9,8 +9,8 @@ public class Query {
 	private int QueryNumber;
 	private String textField;
 	private String searchBy,sortBy,yearStart,yearEnd;
-	private int numberOfPublications;
-	
+	private String numberOfPublications;
+	private boolean relevant=false;
 
 	
 	
@@ -54,18 +54,26 @@ public class Query {
 	public void setYearEnd(String yearEnd) {
 		this.yearEnd = yearEnd;
 	}
-	public int getNumberOfPublications() {
+	
+	public String getNumberOfPublications() {
 		return numberOfPublications;
 	}
-	public void setNumberOfPublications(int numberOfPublications) {
+	public void setNumberOfPublications(String numberOfPublications) {
 		this.numberOfPublications = numberOfPublications;
 	}
-	
 	public boolean isValid(Query q){
 
+		
+		
 		return true;
 		
 		
+	}
+	public boolean isRelevant() {
+		return relevant;
+	}
+	public void setRelevant(boolean relevant) {
+		this.relevant = relevant;
 	}
 	
 	

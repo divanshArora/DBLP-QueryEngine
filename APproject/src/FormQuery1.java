@@ -4,6 +4,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.print.Pageable;
+import java.util.ArrayList;
+import java.util.Currency;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -24,7 +26,7 @@ public class FormQuery1  {
 	private static HintTextField start =new HintTextField("Start",5);
 	private static HintTextField end = new HintTextField("End",5);
 	private static HintTextField enterYear = new HintTextField("Enter Year",10);
-	private static Query currentQuery = DisplayWindow.currentQuery;
+
 	private FormQuery1(){}
 	public static JPanel getFormQuery1 () {
 		if(formQuery1==null)
@@ -43,13 +45,14 @@ public class FormQuery1  {
 						if(combo2.getSelectedIndex()==1)
 						{
 							searchBy = "author";
+							MainClass.currentQuery.setSearchBy("author");
 							
 						}
 						else if(combo2.getSelectedIndex()==2) {
 							searchBy ="title";
+							MainClass.currentQuery.setSearchBy("title");
 							
 						}
-						currentQuery.setSearchBy(searchBy);
 					}
 				}
 			});
@@ -67,10 +70,8 @@ public class FormQuery1  {
 				@Override
 				public void itemStateChanged(ItemEvent e) {
 					if(e.getStateChange()==ItemEvent.SELECTED)
-					{
-						
-							yearHelper(combo3.getSelectedIndex());
-						
+					{						
+						yearHelper(combo3.getSelectedIndex());
 						formQuery1.revalidate();
 						formQuery1.repaint();
 					}
@@ -89,13 +90,12 @@ public class FormQuery1  {
 					{
 						if (combo4.getSelectedIndex()==1) {
 							sortBy = "relevance";
+							MainClass.currentQuery.setSortBy("relevance");
 						}
 						else if(combo4.getSelectedIndex()==2) {
 							sortBy = "date";
-							
+							MainClass.currentQuery.setSortBy("date");
 						}
-						currentQuery.setSortBy(sortBy);
-						
 					}
 					
 				}
@@ -118,7 +118,6 @@ public class FormQuery1  {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					//System.out.println(searchBy+sortBy+start.getText()+end.getText()+enterYear.getText());
 					if(customYearHelper!=null)
 					{
 						yearStart = start.getText();
@@ -128,17 +127,20 @@ public class FormQuery1  {
 						yearStart = enterYear.getText();
 						yearEnd = null;
 					}
-					
-					
-					
-					
-					
-					
+					MainClass.currentQuery.setTextField(textField.getText());
+
+					if((MainClass.currentQuery).isValid(MainClass.currentQuery))
+					{
+						Parser.startParsing(MainClass.currentQuery);
+					}
+					else {
+						
+						
+					}
 				}
 			});
 			
 			
-			//ADD ACTION LISTENERS
 			starter.add(starterButton);
 			starter.add(reset);
 			formQuery1.add(starter);
