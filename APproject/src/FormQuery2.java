@@ -1,3 +1,8 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.nio.charset.CoderMalfunctionError;
+import java.util.Currency;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -23,6 +28,25 @@ public class FormQuery2 {
 			formQuery2.add(Box.createVerticalStrut(20));
 			JPanel starter = new JPanel();
 			JButton start = new JButton("Start"),reset = new JButton("Reset");
+			start.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					MainClass.currentQuery.setNumberOfPublications(textField.getText());
+					Parser.startParsing(MainClass.currentQuery);
+					
+					
+				}
+			});
+			reset.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					
+					
+				}
+			});
+			
 			starter.add(start);
 			starter.add(reset);
 			formQuery2.add(starter);
